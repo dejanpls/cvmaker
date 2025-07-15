@@ -1,6 +1,6 @@
 [Question]:
 
-Is this semantically correct?
+Is this good?
 
 [Code Example]: 
 
