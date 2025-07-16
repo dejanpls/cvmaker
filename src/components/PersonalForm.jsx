@@ -5,11 +5,12 @@ export default function PersonalForm() {
     <section aria-labelledby="personalDetailsHeading">
       <h2 id="personalDetailsHeading">Personal Details</h2>
 
-      <fieldset className="fullName">
-        <legend className="sr-only">Full Name</legend>
+      <fieldset className="about">
+        <legend className="sr-only">About</legend>
 
         <Input name={"given-name"} label={"First Name"} />
         <Input name={"family-name"} label={"Last Name"} />
+        <Input name={"organization"} label={"Desired job position"} />
       </fieldset>
 
       <fieldset className="contact">
@@ -24,6 +25,7 @@ export default function PersonalForm() {
 
         <Input name={"street-address"} label={"Address"} />
         <Input name={"address-level2"} label={"City"} />
+        <Input name={"postal-code"} label={"Post Code"} />
         <Input name={"country"} label={"Country"} />
       </fieldset>
     </section>
