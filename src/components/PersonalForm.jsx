@@ -8,25 +8,53 @@ export default function PersonalForm() {
       <fieldset className="about">
         <legend className="sr-only">About</legend>
 
-        <Input name={"given-name"} label={"First Name"} />
-        <Input name={"family-name"} label={"Last Name"} />
-        <Input name={"organization"} label={"Desired job position"} />
+        <Input
+          htmlFor={"personal-first-name"}
+          name={"given-name"}
+          label={"First Name"}
+        />
+        <Input
+          htmlFor={"personal-last-name"}
+          name={"family-name"}
+          label={"Last Name"}
+        />
+        <Input
+          htmlFor={"personal-desired-position"}
+          name={"organization"}
+          label={"Desired job position"}
+        />
       </fieldset>
 
       <fieldset className="contact">
         <legend className="sr-only">Contact</legend>
 
-        <Input name={"email"} label={"Email"} />
-        <Input name={"tel"} label={"Phone"} />
+        <Input htmlFor={"personal-email"} name={"email"} label={"Email"} />
+        <Input htmlFor={"personal-tel"} name={"tel"} label={"Phone"} />
       </fieldset>
 
       <fieldset className="location">
         <legend className="sr-only">Location</legend>
 
-        <Input name={"street-address"} label={"Address"} />
-        <Input name={"address-level2"} label={"City"} />
-        <Input name={"postal-code"} label={"Post Code"} />
-        <Input name={"country"} label={"Country"} />
+        <Input
+          htmlFor={"personal-address"}
+          name={"street-address"}
+          label={"Address"}
+        />
+        <Input
+          htmlFor={"personal-city"}
+          name={"address-level2"}
+          label={"City"}
+        />
+        <Input
+          htmlFor={"personal-post-code"}
+          name={"postal-code"}
+          label={"Post Code"}
+        />
+        <Input
+          htmlFor={"personal-country"}
+          name={"country"}
+          label={"Country"}
+        />
       </fieldset>
     </section>
   );

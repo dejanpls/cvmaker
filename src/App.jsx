@@ -1,3 +1,4 @@
+import EducationForm from "./components/EducationForm";
 import PersonalForm from "./components/PersonalForm";
 import ProfileForm from "./components/ProfileForm";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <PersonalForm />
       <ProfileForm />
+      <EducationForm />
     </>
   );
 }
