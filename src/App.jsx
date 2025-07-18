@@ -1,14 +1,19 @@
 import { useState } from "react";
 import PersonalForm from "./components/forms/PersonalForm";
+import ProfileForm from "./components/forms/ProfileForm";
 import { getPersonalObjects } from "./utils/stateObjects";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
 
-  const handlePersonalInput = (e) => {
-    const { name, value } = e.target; // get name and value from e.target
+  const [profile, setProfile] = useState({
+    profile: "",
+  });
 
-    setPersonal((prev) => ({
+  const handleChange = (setter) => (e) => {
+    // curried function — a function that returns another function:
+    const { name, value } = e.target;
+    setter((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -16,8 +21,17 @@ function App() {
 
   return (
     <>
-      <PersonalForm personal={personal} handleChange={handlePersonalInput} />
+      <PersonalForm
+        personal={personal}
+        handleChange={handleChange(setPersonal)}
+      />
+      <ProfileForm
+        value={profile.profile}
+        onChange={handleChange(setProfile)}
+      />
+
       {console.log(
+        "Personal:",
         personal.firstName,
         personal.lastName,
         personal.position,
@@ -28,6 +42,8 @@ function App() {
         personal.city,
         personal.country
       )}
+
+      {console.log("Profile:", profile.profile)}
     </>
   );
 }
