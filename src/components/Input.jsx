@@ -5,6 +5,7 @@ export default function Input({
   name,
   label,
   type = "text",
+  autoComplete = "off",
 }) {
   return (
     <div className="input">
@@ -15,7 +16,7 @@ export default function Input({
         type={type}
         id={htmlFor}
         name={name}
-        autoComplete={name}
+        autoComplete={autoComplete}
       />
     </div>
   );

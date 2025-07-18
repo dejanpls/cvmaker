@@ -14,6 +14,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-first-name"}
           label={"First Name"}
+          autoComplete="given-name"
         />
         <Input
           name={"lastName"}
@@ -21,6 +22,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-last-name"}
           label={"Last Name"}
+          autoComplete="family-name"
         />
         <Input
           name={"position"}
@@ -28,6 +30,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-desired-position"}
           label={"Desired job position"}
+          autoComplete="organization"
         />
       </fieldset>
 
@@ -40,6 +43,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-email"}
           label={"Email"}
+          autoComplete="email"
         />
         <Input
           name={"tel"}
@@ -47,6 +51,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-tel"}
           label={"Phone"}
+          autoComplete="tel"
         />
       </fieldset>
 
@@ -59,6 +64,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-address"}
           label={"Address"}
+          autoComplete="address-line1"
         />
         <Input
           name={"zip"}
@@ -66,6 +72,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-post-code"}
           label={"Post Code"}
+          autoComplete="postal-code"
         />
         <Input
           name={"city"}
@@ -73,6 +80,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-city"}
           label={"City"}
+          autoComplete="address-line2"
         />
         <Input
           name={"country"}
@@ -80,6 +88,7 @@ export default function PersonalForm({ personal, handleChange }) {
           onChange={handleChange}
           htmlFor={"personal-country"}
           label={"Country"}
+          autoComplete="country"
         />
       </fieldset>
     </section>

@@ -1,18 +1,9 @@
 import { useState } from "react";
 import PersonalForm from "./components/forms/PersonalForm";
+import { getPersonalObjects } from "./utils/stateObjects";
 
 function App() {
-  const [personal, setPersonal] = useState({
-    firstName: "",
-    lastName: "",
-    position: "",
-    email: "",
-    tel: "",
-    address: "",
-    zip: "",
-    city: "",
-    country: "",
-  });
+  const [personal, setPersonal] = useState(getPersonalObjects());
 
   const handlePersonalInput = (e) => {
     const { name, value } = e.target; // get name and value from e.target
