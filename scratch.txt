@@ -1,52 +1,36 @@
 [Question]:
 
-Is this good?
+Why is this not working?
 
 [Code Example]: 
 
-export default function PersonalForm() {
+[App.jsx]:
+[...]
+function App() {
+  const [firstName, setFirstName] = useState("");
   return (
     <>
-      <fieldset className="fullName">
-        <div className="input">
-          <label htmlFor="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" />
-        </div>
-
-        <div className="input">
-          <label htmlFor="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" />
-        </div>
-      </fieldset>
-
-      <fieldset className="contact">
-        <div className="input">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" />
-        </div>
-
-        <div className="input">
-          <label htmlFor="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" />
-        </div>
-      </fieldset>
-
-      <fieldset className="location">
-        <div className="input">
-          <label htmlFor="address">Address</label>
-          <input type="text" id="address" name="address" />
-        </div>
-
-        <div className="input">
-          <label htmlFor="city">City</label>
-          <input type="text" id="city" name="city" />
-        </div>
-
-        <div className="input">
-          <label htmlFor="country">Country</label>
-          <input type="text" id="country" name="country" />
-        </div>
-      </fieldset>
+      <PersonalForm props={setFirstName((e) => e.target.value)} />
     </>
   );
 }
+
+[PersonalForm.jsx]:
+
+import Input from "./Input";
+
+export default function PersonalForm(props) {
+  return (
+    <section aria-labelledby="personalDetailsHeading">
+      <h2 id="personalDetailsHeading">Personal Details</h2>
+
+      <fieldset className="about">
+        <legend className="sr-only">About</legend>
+
+        <Input
+          value={props.value}
+          htmlFor={"personal-first-name"}
+          name={"given-name"}
+          label={"First Name"}
+        />
+[...]

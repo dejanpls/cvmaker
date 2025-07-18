@@ -1,6 +1,6 @@
 import Input from "./Input";
 
-export default function PersonalForm() {
+export default function PersonalForm({ personal, handleChange }) {
   return (
     <section aria-labelledby="personalDetailsHeading">
       <h2 id="personalDetailsHeading">Personal Details</h2>
@@ -9,18 +9,24 @@ export default function PersonalForm() {
         <legend className="sr-only">About</legend>
 
         <Input
+          name={"firstName"}
+          value={personal.firstName}
+          onChange={handleChange}
           htmlFor={"personal-first-name"}
-          name={"given-name"}
           label={"First Name"}
         />
         <Input
+          name={"lastName"}
+          value={personal.lastName}
+          onChange={handleChange}
           htmlFor={"personal-last-name"}
-          name={"family-name"}
           label={"Last Name"}
         />
         <Input
+          name={"position"}
+          value={personal.position}
+          onChange={handleChange}
           htmlFor={"personal-desired-position"}
-          name={"organization"}
           label={"Desired job position"}
         />
       </fieldset>
@@ -28,31 +34,51 @@ export default function PersonalForm() {
       <fieldset className="contact">
         <legend className="sr-only">Contact</legend>
 
-        <Input htmlFor={"personal-email"} name={"email"} label={"Email"} />
-        <Input htmlFor={"personal-tel"} name={"tel"} label={"Phone"} />
+        <Input
+          name={"email"}
+          value={personal.email}
+          onChange={handleChange}
+          htmlFor={"personal-email"}
+          label={"Email"}
+        />
+        <Input
+          name={"tel"}
+          value={personal.tel}
+          onChange={handleChange}
+          htmlFor={"personal-tel"}
+          label={"Phone"}
+        />
       </fieldset>
 
       <fieldset className="location">
         <legend className="sr-only">Location</legend>
 
         <Input
+          name={"address"}
+          value={personal.address}
+          onChange={handleChange}
           htmlFor={"personal-address"}
-          name={"street-address"}
           label={"Address"}
         />
         <Input
-          htmlFor={"personal-city"}
-          name={"address-level2"}
-          label={"City"}
-        />
-        <Input
+          name={"zip"}
+          value={personal.zip}
+          onChange={handleChange}
           htmlFor={"personal-post-code"}
-          name={"postal-code"}
           label={"Post Code"}
         />
         <Input
-          htmlFor={"personal-country"}
+          name={"city"}
+          value={personal.city}
+          onChange={handleChange}
+          htmlFor={"personal-city"}
+          label={"City"}
+        />
+        <Input
           name={"country"}
+          value={personal.country}
+          onChange={handleChange}
+          htmlFor={"personal-country"}
           label={"Country"}
         />
       </fieldset>
