@@ -20,13 +20,32 @@ function App() {
 
   const [educations, setEducations] = useState([getEducationObjects()]);
 
-  const handleAddForm = (setter, getObjects) => () => {
-    setter((prev) => [...prev, getObjects()]);
+  const handleAddEmploymentForm = () => {
+    setEmployments((prev) => [...prev, getEmploymentObjects()]);
   };
 
-  const handleChanges = (setter) => (id) => (e) => {
+  const handleAddEducationForm = () => {
+    setEducations((prev) => [...prev, getEducationObjects()]);
+  };
+
+  const handleDeleteEmployment = (id) => {
+    setEmployments((prev) => prev.filter((employment) => employment.id !== id));
+  };
+
+  const handleDeleteEducation = (id) => {
+    setEducations((prev) => prev.filter((education) => education.id !== id));
+  };
+
+  const handleEmploymentChanges = (id) => (e) => {
     const { name, value } = e.target;
-    setter((prev) =>
+    setEmployments((prev) =>
+      prev.map((form) => (form.id === id ? { ...form, [name]: value } : form))
+    );
+  };
+
+  const handleEducationChanges = (id) => (e) => {
+    const { name, value } = e.target;
+    setEducations((prev) =>
       prev.map((form) => (form.id === id ? { ...form, [name]: value } : form))
     );
   };
@@ -50,17 +69,16 @@ function App() {
 
       <RenderEmploymentSection
         employments={employments}
-        handleEmploymentChange={handleChanges(setEmployments)}
-        handleAddEmployment={handleAddForm(
-          setEmployments,
-          getEmploymentObjects
-        )}
+        handleEmploymentChange={handleEmploymentChanges}
+        handleAddEmployment={handleAddEmploymentForm}
+        handleDeleteEmployment={handleDeleteEmployment}
       />
 
       <RenderEducationSection
         educations={educations}
-        handleEducationtChange={handleChanges(setEducations)}
-        handleAddEducation={handleAddForm(setEducations, getEducationObjects)}
+        handleEducationChange={handleEducationChanges}
+        handleAddEducation={handleAddEducationForm}
+        handleDeleteEducation={handleDeleteEducation}
       />
 
       {console.log(
