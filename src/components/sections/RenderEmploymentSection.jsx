@@ -6,9 +6,9 @@ export default function RenderEmploymentSection({
   handleAddEmployment,
 }) {
   return (
-    <div>
-      <section aria-labelledby="employmentDetailsHeading">
-        <h2 id="employmentnDetailsHeading">Employment</h2>
+    <section aria-labelledby="employmentDetailsHeading">
+      <h2 id="employmentnDetailsHeading">Employment</h2>
+      <div className="employment-forms">
         {employments.map((employment) => (
           <EmploymentForm
             key={employment.id} // For now, index is okay; consider unique IDs for reorder/delete later
@@ -16,8 +16,8 @@ export default function RenderEmploymentSection({
             onChange={handleEmploymentChange(employment.id)}
           />
         ))}
-      </section>
+      </div>
       <button onClick={handleAddEmployment}>Add Employment</button>
-    </div>
+    </section>
   );
 }

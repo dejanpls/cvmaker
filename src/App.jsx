@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PersonalForm from "./components/forms/PersonalForm";
 import ProfileForm from "./components/forms/ProfileForm";
-import EmploymentForm from "./components/forms/EmploymentForm";
 import EducationForm from "./components/forms/EducationForm";
 import {
   getPersonalObjects,
@@ -48,16 +47,6 @@ function App() {
         handleChange={handleChange(setPersonal)}
       />
       <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
-
-      {/* {employments.map((employment) => (
-        <EmploymentForm
-          key={employment.id} // For now, index is okay; consider unique IDs for reorder/delete later
-          employment={employment}
-          onChange={handleEmploymentChange(employment.id)}
-        />
-      ))}
-
-      <button onClick={handleAddEmploymentForm}>Add Employment</button> */}
 
       <RenderEmploymentSection
         employments={employments}

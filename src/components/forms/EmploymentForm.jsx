@@ -2,7 +2,7 @@ import Input from "../Input";
 
 export default function EmploymentForm({ employment, onChange }) {
   return (
-    <>
+    <div className="employment-form">
       <fieldset className="organization">
         <legend className="sr-only">Employment</legend>
 
@@ -61,6 +61,6 @@ export default function EmploymentForm({ employment, onChange }) {
           id={`description-${employment.id}`}
         />
       </fieldset>
-    </>
+    </div>
   );
 }
