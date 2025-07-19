@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 function getPersonalObjects() {
   return {
     firstName: "",
@@ -25,6 +27,7 @@ function getEducationObjects() {
 
 function getEmploymentObjects() {
   return {
+    id: uuidv4(), // unique id / key
     position: "",
     employer: "",
     city: "",

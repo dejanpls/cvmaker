@@ -8,6 +8,7 @@ import {
   getEmploymentObjects,
   getEducationObjects,
 } from "./utils/stateObjects";
+import RenderEmploymentSection from "./components/sections/RenderEmploymentSection";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
@@ -16,7 +17,19 @@ function App() {
     profile: "",
   });
 
-  const [employment, setEmployment] = useState(getEmploymentObjects());
+  const [employments, setEmployments] = useState([getEmploymentObjects()]);
+
+  const handleEmploymentChange = (id) => (e) => {
+    const { name, value } = e.target;
+    setEmployments((prev) =>
+      prev.map((form) => (form.id === id ? { ...form, [name]: value } : form))
+    );
+  };
+
+  const handleAddEmploymentForm = () => {
+    setEmployments((prev) => [...prev, getEmploymentObjects()]);
+  };
+
   const [education, setEducation] = useState(getEducationObjects());
 
   const handleChange = (setter) => (e) => {
@@ -36,9 +49,20 @@ function App() {
       />
       <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
 
-      <EmploymentForm
-        employment={employment}
-        onChange={handleChange(setEmployment)}
+      {/* {employments.map((employment) => (
+        <EmploymentForm
+          key={employment.id} // For now, index is okay; consider unique IDs for reorder/delete later
+          employment={employment}
+          onChange={handleEmploymentChange(employment.id)}
+        />
+      ))}
+
+      <button onClick={handleAddEmploymentForm}>Add Employment</button> */}
+
+      <RenderEmploymentSection
+        employments={employments}
+        handleEmploymentChange={handleEmploymentChange}
+        handleAddEmployment={handleAddEmploymentForm}
       />
 
       <EducationForm
@@ -61,14 +85,16 @@ function App() {
 
       {console.log("Profile:", profile.profile)}
 
-      {console.log(
-        "Employment:",
-        employment.position,
-        employment.employer,
-        employment.city,
-        employment.start,
-        employment.end,
-        employment.description
+      {employments.map((employment) =>
+        console.log(
+          "Employment:",
+          employment.position,
+          employment.employer,
+          employment.city,
+          employment.start,
+          employment.end,
+          employment.description
+        )
       )}
 
       {console.log(
