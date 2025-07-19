@@ -14,7 +14,7 @@ export default function EmploymentForm({ employment, onChange }) {
           onChange={onChange}
           htmlFor={"emp-position"}
           label={"Position"}
-          autoComplete="organization"
+          autoComplete="organization-title"
         />
         <Input
           name={"employer"}
