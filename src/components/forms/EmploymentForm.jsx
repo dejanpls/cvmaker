@@ -9,26 +9,26 @@ export default function EmploymentForm({ employment, onChange }) {
         <legend className="sr-only">Employment</legend>
 
         <Input
-          name={"position"}
+          name={`position-${employment.id}`}
           value={employment.position}
           onChange={onChange}
-          htmlFor={"emp-position"}
+          htmlFor={`position-${employment.id}`}
           label={"Position"}
           autoComplete="organization-title"
         />
         <Input
-          name={"employer"}
+          name={`employer-${employment.id}`}
           value={employment.employer}
           onChange={onChange}
-          htmlFor={"emp-employer"}
+          htmlFor={`employer-${employment.id}`}
           label={"Employer"}
           autoComplete={"organization"}
         />
         <Input
-          name={"city"}
+          name={`city-${employment.id}`}
           value={employment.city}
           onChange={onChange}
-          htmlFor={"emp-city"}
+          htmlFor={`city-${employment.id}`}
           label={"City"}
           autoComplete={"address-level2"}
         />
@@ -37,18 +37,18 @@ export default function EmploymentForm({ employment, onChange }) {
       <fieldset>
         <legend className="sr-only">Employment Period</legend>
         <Input
-          name={"start"}
+          name={`start-${employment.id}`}
           value={employment.start}
           onChange={onChange}
-          htmlFor={"emp-start-date"}
+          htmlFor={`start-${employment.id}`}
           label={"Start Date"}
           autoComplete={"date"}
         />
         <Input
-          name={"end"}
+          name={`end-${employment.id}`}
           value={employment.end}
           onChange={onChange}
-          htmlFor={"emp-end-date"}
+          htmlFor={`end-${employment.id}`}
           label={"End Date"}
           autoComplete={"date"}
         />
@@ -58,10 +58,10 @@ export default function EmploymentForm({ employment, onChange }) {
       <fieldset>
         <legend className="sr-only">Description</legend>
         <textarea
-          name="description"
+          name={`description-${employment.id}`}
           value={employment.description}
           onChange={onChange}
-          id="emp-description"
+          id={`description-${employment.id}`}
         />
       </fieldset>
     </section>
