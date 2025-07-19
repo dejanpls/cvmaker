@@ -1,4 +1,4 @@
-export function getPersonalObjects() {
+function getPersonalObjects() {
   return {
     firstName: "",
     lastName: "",
@@ -12,7 +12,18 @@ export function getPersonalObjects() {
   };
 }
 
-export function getEmploymentObjects() {
+function getEducationObjects() {
+  return {
+    education: "",
+    school: "",
+    city: "",
+    start: "",
+    end: "",
+    description: "",
+  };
+}
+
+function getEmploymentObjects() {
   return {
     position: "",
     employer: "",
@@ -22,3 +33,5 @@ export function getEmploymentObjects() {
     description: "",
   };
 }
+
+export { getPersonalObjects, getEducationObjects, getEmploymentObjects };

@@ -2,7 +2,12 @@ import { useState } from "react";
 import PersonalForm from "./components/forms/PersonalForm";
 import ProfileForm from "./components/forms/ProfileForm";
 import EmploymentForm from "./components/forms/EmploymentForm";
-import { getPersonalObjects, getEmploymentObjects } from "./utils/stateObjects";
+import EducationForm from "./components/forms/EducationForm";
+import {
+  getPersonalObjects,
+  getEmploymentObjects,
+  getEducationObjects,
+} from "./utils/stateObjects";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
@@ -12,6 +17,7 @@ function App() {
   });
 
   const [employment, setEmployment] = useState(getEmploymentObjects());
+  const [education, setEducation] = useState(getEducationObjects());
 
   const handleChange = (setter) => (e) => {
     // curried function — a function that returns another function:
@@ -33,6 +39,11 @@ function App() {
       <EmploymentForm
         employment={employment}
         onChange={handleChange(setEmployment)}
+      />
+
+      <EducationForm
+        education={education}
+        onChange={handleChange(setEducation)}
       />
 
       {console.log(
@@ -58,6 +69,16 @@ function App() {
         employment.start,
         employment.end,
         employment.description
+      )}
+
+      {console.log(
+        "Education:",
+        education.education,
+        education.school,
+        education.city,
+        education.start,
+        education.end,
+        education.description
       )}
     </>
   );
