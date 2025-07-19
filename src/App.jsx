@@ -1,13 +1,13 @@
 import { useState } from "react";
 import PersonalForm from "./components/forms/PersonalForm";
 import ProfileForm from "./components/forms/ProfileForm";
-import EducationForm from "./components/forms/EducationForm";
 import {
   getPersonalObjects,
   getEmploymentObjects,
   getEducationObjects,
 } from "./utils/stateObjects";
 import RenderEmploymentSection from "./components/sections/RenderEmploymentSection";
+import RenderEducationSection from "./components/sections/RenderEducationSection";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
@@ -18,18 +18,18 @@ function App() {
 
   const [employments, setEmployments] = useState([getEmploymentObjects()]);
 
-  const handleEmploymentChange = (id) => (e) => {
+  const [educations, setEducations] = useState([getEducationObjects()]);
+
+  const handleAddForm = (setter, getObjects) => () => {
+    setter((prev) => [...prev, getObjects()]);
+  };
+
+  const handleChanges = (setter) => (id) => (e) => {
     const { name, value } = e.target;
-    setEmployments((prev) =>
+    setter((prev) =>
       prev.map((form) => (form.id === id ? { ...form, [name]: value } : form))
     );
   };
-
-  const handleAddEmploymentForm = () => {
-    setEmployments((prev) => [...prev, getEmploymentObjects()]);
-  };
-
-  const [education, setEducation] = useState(getEducationObjects());
 
   const handleChange = (setter) => (e) => {
     // curried function — a function that returns another function:
@@ -50,13 +50,17 @@ function App() {
 
       <RenderEmploymentSection
         employments={employments}
-        handleEmploymentChange={handleEmploymentChange}
-        handleAddEmployment={handleAddEmploymentForm}
+        handleEmploymentChange={handleChanges(setEmployments)}
+        handleAddEmployment={handleAddForm(
+          setEmployments,
+          getEmploymentObjects
+        )}
       />
 
-      <EducationForm
-        education={education}
-        onChange={handleChange(setEducation)}
+      <RenderEducationSection
+        educations={educations}
+        handleEducationtChange={handleChanges(setEducations)}
+        handleAddEducation={handleAddForm(setEducations, getEducationObjects)}
       />
 
       {console.log(
@@ -86,14 +90,16 @@ function App() {
         )
       )}
 
-      {console.log(
-        "Education:",
-        education.education,
-        education.school,
-        education.city,
-        education.start,
-        education.end,
-        education.description
+      {educations.map((education) =>
+        console.log(
+          "Educations:",
+          education.education,
+          education.school,
+          education.city,
+          education.start,
+          education.end,
+          education.description
+        )
       )}
     </>
   );

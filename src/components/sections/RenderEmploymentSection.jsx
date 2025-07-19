@@ -7,11 +7,11 @@ export default function RenderEmploymentSection({
 }) {
   return (
     <section aria-labelledby="employmentDetailsHeading">
-      <h2 id="employmentnDetailsHeading">Employment</h2>
+      <h2 id="employmentDetailsHeading">Employment</h2>
       <div className="employment-forms">
         {employments.map((employment) => (
           <EmploymentForm
-            key={employment.id} // For now, index is okay; consider unique IDs for reorder/delete later
+            key={employment.id}
             employment={employment}
             onChange={handleEmploymentChange(employment.id)}
           />

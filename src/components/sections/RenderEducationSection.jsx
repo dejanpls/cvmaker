@@ -6,18 +6,18 @@ export default function RenderEducationSection({
   handleAddEducation,
 }) {
   return (
-    <div>
-      <section aria-labelledby="educationDetailsHeading">
-        <h2 id="educationDetailsHeading">Education</h2>
-        {educations.map((edu) => (
+    <section aria-labelledby="educationDetailsHeading">
+      <h2 id="educationDetailsHeading">Education</h2>
+      <div className="education-forms">
+        {educations.map((education) => (
           <EducationForm
-            key={edu.id} // For now, index is okay; consider unique IDs for reorder/delete later
-            employment={edu}
-            onChange={handleEducationtChange(edu.id)}
+            key={education.id}
+            education={education}
+            onChange={handleEducationtChange(education.id)}
           />
         ))}
-      </section>
-      <button onClick={handleAddEducation}>Add Employment</button>
-    </div>
+      </div>
+      <button onClick={handleAddEducation}>Add Education</button>
+    </section>
   );
 }

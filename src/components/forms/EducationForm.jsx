@@ -1,10 +1,8 @@
 import Input from "../Input";
 
-export default function EmploymentForm({ education, onChange }) {
+export default function EducationForm({ education, onChange }) {
   return (
-    <section aria-labelledby="educationDetailsHeading">
-      <h2 id="educationnDetailsHeading">Education</h2>
-
+    <div className="education-form">
       <fieldset className="organization">
         <legend className="sr-only">Education</legend>
 
@@ -12,7 +10,7 @@ export default function EmploymentForm({ education, onChange }) {
           name={"education"}
           value={education.education}
           onChange={onChange}
-          htmlFor={"edu-education"}
+          htmlFor={`education-${education.id}`}
           label={"Education"}
           autoComplete="organization-title"
         />
@@ -20,7 +18,7 @@ export default function EmploymentForm({ education, onChange }) {
           name={"school"}
           value={education.school}
           onChange={onChange}
-          htmlFor={"edu-school"}
+          htmlFor={`school-${education.id}`}
           label={"School"}
           autoComplete={"organization"}
         />
@@ -28,7 +26,7 @@ export default function EmploymentForm({ education, onChange }) {
           name={"city"}
           value={education.city}
           onChange={onChange}
-          htmlFor={"edu-city"}
+          htmlFor={`city-${education.id}`}
           label={"City"}
           autoComplete={"address-level2"}
         />
@@ -40,7 +38,7 @@ export default function EmploymentForm({ education, onChange }) {
           name={"start"}
           value={education.start}
           onChange={onChange}
-          htmlFor={"edu-start-date"}
+          htmlFor={`start-${education.id}`}
           label={"Start Date"}
           autoComplete={"date"}
         />
@@ -48,7 +46,7 @@ export default function EmploymentForm({ education, onChange }) {
           name={"end"}
           value={education.end}
           onChange={onChange}
-          htmlFor={"edu-end-date"}
+          htmlFor={`end-${education.id}`}
           label={"End Date"}
           autoComplete={"date"}
         />
@@ -64,6 +62,6 @@ export default function EmploymentForm({ education, onChange }) {
           id="edu-description"
         />
       </fieldset>
-    </section>
+    </div>
   );
 }

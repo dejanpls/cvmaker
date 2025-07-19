@@ -16,6 +16,7 @@ function getPersonalObjects() {
 
 function getEducationObjects() {
   return {
+    id: uuidv4(), // unique id / key
     education: "",
     school: "",
     city: "",
