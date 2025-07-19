@@ -11,3 +11,14 @@ export function getPersonalObjects() {
     country: "",
   };
 }
+
+export function getEmploymentObjects() {
+  return {
+    position: "",
+    employer: "",
+    city: "",
+    start: "",
+    end: "",
+    description: "",
+  };
+}

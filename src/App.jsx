@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PersonalForm from "./components/forms/PersonalForm";
 import ProfileForm from "./components/forms/ProfileForm";
-import { getPersonalObjects } from "./utils/stateObjects";
+import EmploymentForm from "./components/forms/EmploymentForm";
+import { getPersonalObjects, getEmploymentObjects } from "./utils/stateObjects";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
@@ -9,6 +10,8 @@ function App() {
   const [profile, setProfile] = useState({
     profile: "",
   });
+
+  const [employment, setEmployment] = useState(getEmploymentObjects());
 
   const handleChange = (setter) => (e) => {
     // curried function — a function that returns another function:
@@ -25,9 +28,11 @@ function App() {
         personal={personal}
         handleChange={handleChange(setPersonal)}
       />
-      <ProfileForm
-        value={profile.profile}
-        onChange={handleChange(setProfile)}
+      <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
+
+      <EmploymentForm
+        employment={employment}
+        onChange={handleChange(setEmployment)}
       />
 
       {console.log(
@@ -44,6 +49,16 @@ function App() {
       )}
 
       {console.log("Profile:", profile.profile)}
+
+      {console.log(
+        "Employment:",
+        employment.position,
+        employment.employer,
+        employment.city,
+        employment.start,
+        employment.end,
+        employment.description
+      )}
     </>
   );
 }

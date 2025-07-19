@@ -1,4 +1,4 @@
-export default function ProfileForm({ value, onChange }) {
+export default function ProfileForm({ profile, onChange }) {
   return (
     <section aria-labelledby="profileHeading">
       <h2 id="profileHeading">Profile</h2>
@@ -6,7 +6,7 @@ export default function ProfileForm({ value, onChange }) {
       <fieldset className="profile">
         <legend className="sr-only">Profile</legend>
         <textarea
-          value={value}
+          value={profile.profile}
           onChange={onChange}
           id="profile"
           name="profile"

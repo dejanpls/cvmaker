@@ -1,6 +1,6 @@
-import Input from "./Input";
+import Input from "../Input";
 
-export default function EmploymentForm() {
+export default function EmploymentForm({ employment, onChange }) {
   return (
     <section aria-labelledby="employmentDetailsHeading">
       <h2 id="employmentnDetailsHeading">Employment</h2>
@@ -9,43 +9,60 @@ export default function EmploymentForm() {
         <legend className="sr-only">Employment</legend>
 
         <Input
+          name={"position"}
+          value={employment.position}
+          onChange={onChange}
           htmlFor={"emp-position"}
-          name={"organization-title"}
           label={"Position"}
+          autoComplete="organization"
         />
         <Input
+          name={"employer"}
+          value={employment.employer}
+          onChange={onChange}
           htmlFor={"emp-employer"}
-          name={"organization"}
           label={"Employer"}
+          autoComplete={"organization"}
         />
-        <Input htmlFor={"emp-city"} name={"address-level2"} label={"City"} />
+        <Input
+          name={"city"}
+          value={employment.city}
+          onChange={onChange}
+          htmlFor={"emp-city"}
+          label={"City"}
+          autoComplete={"address-level2"}
+        />
       </fieldset>
 
       <fieldset>
-        <legend className="sr-only">Start Date</legend>
+        <legend className="sr-only">Employment Period</legend>
         <Input
-          htmlFor={"emp-start-month"}
-          name={"date"}
-          label={"Start Month"}
+          name={"start"}
+          value={employment.start}
+          onChange={onChange}
+          htmlFor={"emp-start-date"}
+          label={"Start Date"}
+          autoComplete={"date"}
         />
-        <Input htmlFor={"emp-start-year"} name={"date"} label={"Start Year"} />
+        <Input
+          name={"end"}
+          value={employment.end}
+          onChange={onChange}
+          htmlFor={"emp-end-date"}
+          label={"End Date"}
+          autoComplete={"date"}
+        />
+        {/* if no end date => start date - present (e.g. 07/2022 - present) */}
       </fieldset>
 
       <fieldset>
-        <legend className="sr-only">End Date</legend>
-        <Input htmlFor={"emp-end-month"} name={"date"} label={"End Month"} />
-        <Input htmlFor={"emp-end-year"} name={"date"} label={"End Year"} />
-        <Input
-          htmlFor={"emp-present"}
-          name={"date"}
-          label={"Present"}
-          type="checkbox"
-        />
-      </fieldset>
-
-      <fieldset className="description">
         <legend className="sr-only">Description</legend>
-        <textarea id="emp-description" name="description" />
+        <textarea
+          name="description"
+          value={employment.description}
+          onChange={onChange}
+          id="emp-description"
+        />
       </fieldset>
     </section>
   );
