@@ -2,6 +2,7 @@ import Educations from "./cv/Educations";
 import Employments from "./cv/Employments";
 import Personal from "./cv/Personal";
 import Profile from "./cv/Profile";
+import "../styles/cv.css";
 
 export default function CVPreview({
   personal,

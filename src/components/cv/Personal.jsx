@@ -14,10 +14,9 @@ export default function Personal({ personal }) {
       </div>
 
       <address className="location">
-        <p className="address">{personal.address}</p>
-        <p className="zip">{personal.zip}</p>
-        <p className="city">{personal.city}</p>
-        <p className="country">{personal.country}</p>
+        <p className="address">
+          {personal.address}, {personal.zip} {personal.city}, {personal.country}
+        </p>
       </address>
     </section>
   );
