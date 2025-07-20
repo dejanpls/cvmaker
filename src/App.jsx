@@ -88,20 +88,6 @@ function App() {
         employments={employments}
         educations={educations}
       />
-
-      {/* 
-
-      {educations.map((education) =>
-        console.log(
-          "Educations:",
-          education.education,
-          education.school,
-          education.city,
-          education.start,
-          education.end,
-          education.description
-        )
-      )} */}
     </>
   );
 }
