@@ -8,6 +8,7 @@ import {
 } from "./utils/stateObjects";
 import RenderEmploymentSection from "./components/sections/RenderEmploymentSection";
 import RenderEducationSection from "./components/sections/RenderEducationSection";
+import CVPreview from "./components/CVPreview";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
@@ -81,32 +82,14 @@ function App() {
         handleDeleteEducation={handleDeleteEducation}
       />
 
-      {console.log(
-        "Personal:",
-        personal.firstName,
-        personal.lastName,
-        personal.position,
-        personal.email,
-        personal.tel,
-        personal.address,
-        personal.zip,
-        personal.city,
-        personal.country
-      )}
+      <CVPreview
+        personal={personal}
+        profile={profile}
+        employments={employments}
+        educations={educations}
+      />
 
-      {console.log("Profile:", profile.profile)}
-
-      {employments.map((employment) =>
-        console.log(
-          "Employment:",
-          employment.position,
-          employment.employer,
-          employment.city,
-          employment.start,
-          employment.end,
-          employment.description
-        )
-      )}
+      {/* 
 
       {educations.map((education) =>
         console.log(
@@ -118,7 +101,7 @@ function App() {
           education.end,
           education.description
         )
-      )}
+      )} */}
     </>
   );
 }
