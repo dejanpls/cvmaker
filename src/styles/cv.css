@@ -17,6 +17,7 @@ section.personal {
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
+  min-height: 170px;
 }
 
 div.about {
@@ -41,4 +42,9 @@ div.contact {
 
 address.location {
   display: flex;
+}
+
+section.profile {
+  border: 1px solid purple;
+  padding: 0.3rem;
 }

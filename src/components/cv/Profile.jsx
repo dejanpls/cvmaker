@@ -1,3 +1,10 @@
 export default function Profile({ profile }) {
-  return <section className="profile">{profile.profile}</section>;
+  if (!profile?.profile) return null;
+
+  return (
+    <section className="profile">
+      <h2 className="profile-heading">Profile</h2>
+      <p>{profile.profile}</p>
+    </section>
+  );
 }
