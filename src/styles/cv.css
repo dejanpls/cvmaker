@@ -36,7 +36,7 @@ p.desired-position {
 
 div.contact {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 address.location {
