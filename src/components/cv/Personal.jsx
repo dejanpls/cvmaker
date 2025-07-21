@@ -1,10 +1,10 @@
+import { getDisplayName, getAddress } from "./CVHelper";
+
 export default function Personal({ personal }) {
   return (
     <section className="personal">
       <div className="about">
-        <h1 className="fullName">
-          {personal.firstName} {personal.lastName}
-        </h1>
+        <h1 className="fullName">{getDisplayName(personal)}</h1>
         <p className="desired-position">{personal.position}</p>
       </div>
 
@@ -14,9 +14,7 @@ export default function Personal({ personal }) {
       </div>
 
       <address className="location">
-        <p className="address">
-          {personal.address}, {personal.zip} {personal.city}, {personal.country}
-        </p>
+        <p className="address">{getAddress(personal)}</p>
       </address>
     </section>
   );
