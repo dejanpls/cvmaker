@@ -11,8 +11,8 @@ section.cv * {
 section.cv {
   border: 1px solid black;
   border-radius: 0.5rem;
-  width: 794px;
-  height: 1123px;
+  min-width: 794px;
+  min-height: 1123px;
   padding: 2rem;
 }
 
