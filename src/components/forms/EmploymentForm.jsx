@@ -54,6 +54,7 @@ export default function EmploymentForm({ employment, onChange }) {
 
       <fieldset>
         <legend className="sr-only">Description</legend>
+        <label htmlFor={`description-${employment.id}`}>Description</label>
         <textarea
           name="description"
           value={employment.description}

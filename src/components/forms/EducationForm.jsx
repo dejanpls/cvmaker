@@ -55,6 +55,7 @@ export default function EducationForm({ education, onChange }) {
 
       <fieldset>
         <legend className="sr-only">Description</legend>
+        <label htmlFor="edu-description">Description</label>
         <textarea
           name="description"
           value={education.description}
