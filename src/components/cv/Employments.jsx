@@ -7,12 +7,12 @@ export default function Employments({ employments }) {
 
   return (
     <div className="employments">
+      <h2 className="title">Employment</h2>
       {validEmployments.map((employment) => (
         <article className="employment" key={employment.id}>
           <div className="employment-meta">
-            {employment.position && (
-              <h2 className="employment-position">{employment.position}</h2>
-            )}
+            <p className="employment-position">{employment.position}</p>
+
             {(employment.start || employment.end) && (
               <p className="employment-dates">
                 {employment.start}

@@ -7,12 +7,12 @@ export default function Educations({ educations }) {
 
   return (
     <div className="educations">
+      <h2 className="title">Education</h2>
       {validEdu.map((education) => (
         <article className="education" key={education.id}>
           <div className="education-meta">
-            {education.education && (
-              <h2 className="education-education">{education.education}</h2>
-            )}
+            <p className="education-education">{education.education}</p>
+
             {(education.start || education.end) && (
               <p className="education-dates">
                 {education.start}
