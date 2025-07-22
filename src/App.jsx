@@ -9,6 +9,7 @@ import {
 import RenderEmploymentSection from "./components/sections/RenderEmploymentSection";
 import RenderEducationSection from "./components/sections/RenderEducationSection";
 import CVPreview from "./components/CVPreview";
+import "./styles/inputs.css";
 
 function App() {
   const [personal, setPersonal] = useState(getPersonalObjects());
@@ -62,25 +63,27 @@ function App() {
 
   return (
     <>
-      <PersonalForm
-        personal={personal}
-        handleChange={handleChange(setPersonal)}
-      />
-      <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
+      <section className="inputs">
+        <PersonalForm
+          personal={personal}
+          handleChange={handleChange(setPersonal)}
+        />
+        <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
 
-      <RenderEmploymentSection
-        employments={employments}
-        handleEmploymentChange={handleEmploymentChanges}
-        handleAddEmployment={handleAddEmploymentForm}
-        handleDeleteEmployment={handleDeleteEmployment}
-      />
+        <RenderEmploymentSection
+          employments={employments}
+          handleEmploymentChange={handleEmploymentChanges}
+          handleAddEmployment={handleAddEmploymentForm}
+          handleDeleteEmployment={handleDeleteEmployment}
+        />
 
-      <RenderEducationSection
-        educations={educations}
-        handleEducationChange={handleEducationChanges}
-        handleAddEducation={handleAddEducationForm}
-        handleDeleteEducation={handleDeleteEducation}
-      />
+        <RenderEducationSection
+          educations={educations}
+          handleEducationChange={handleEducationChanges}
+          handleAddEducation={handleAddEducationForm}
+          handleDeleteEducation={handleDeleteEducation}
+        />
+      </section>
 
       <CVPreview
         personal={personal}
