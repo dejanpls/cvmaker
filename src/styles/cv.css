@@ -11,8 +11,12 @@ section.cv * {
 section.cv {
   border: 1px solid black;
   border-radius: 0.5rem;
-  min-width: 794px;
-  min-height: 1123px;
+
+  aspect-ratio: 210 / 297;
+  width: 100%;
+  max-width: 794px;
+  height: auto;
+
   padding: 2rem;
 }
 

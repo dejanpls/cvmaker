@@ -9,6 +9,7 @@ import {
 import RenderEmploymentSection from "./components/sections/RenderEmploymentSection";
 import RenderEducationSection from "./components/sections/RenderEducationSection";
 import CVPreview from "./components/CVPreview";
+import "./styles/styles.css";
 import "./styles/inputs.css";
 
 function App() {
