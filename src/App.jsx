@@ -86,7 +86,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-row border border-red-600">
+    <div className="flex flex-row justify-center items-start border border-red-600">
       <section className="w-[500px] border border-red-600">
         <PersonalForm
           togglePersonal={togglePersonal}
