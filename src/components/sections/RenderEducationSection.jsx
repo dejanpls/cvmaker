@@ -1,6 +1,8 @@
 import EducationForm from "../forms/EducationForm";
 
 export default function RenderEducationSection({
+  toggleEdu,
+  isEduVisible,
   educations,
   handleEducationChange,
   handleAddEducation,
@@ -13,47 +15,54 @@ export default function RenderEducationSection({
     >
       <h2
         id="educationDetailsHeading"
-        className="text-3xl font-semibold mb-6 text-gray-800"
+        className="text-3xl font-semibold text-gray-800 border border-gray-300 rounded-md p-2"
+        role="button"
+        tabIndex={0}
+        onClick={toggleEdu}
       >
         Education
       </h2>
 
-      <div className="space-y-8 mb-6">
-        {educations.map((education) => (
-          <div
-            key={education.id}
-            className="education-forms-wrapper border border-gray-300 rounded-md pb-8 relative"
-          >
-            <EducationForm
-              education={education}
-              onChange={handleEducationChange(education.id)}
-            />
+      {isEduVisible && (
+        <>
+          <div className="space-y-8 mt-4 mb-6">
+            {educations.map((education) => (
+              <div
+                key={education.id}
+                className="education-forms-wrapper border border-gray-300 rounded-md pb-8 relative"
+              >
+                <EducationForm
+                  education={education}
+                  onChange={handleEducationChange(education.id)}
+                />
 
-            {educations.length > 1 && (
-              <button
-                type="button"
-                onClick={() => handleDeleteEducation(education.id)}
-                className="absolute bottom-2 right-1 text-red-600 hover:text-red-800
+                {educations.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteEducation(education.id)}
+                    className="absolute bottom-2 right-1 text-red-600 hover:text-red-800
                            font-semibold focus:outline-none focus:ring-2 focus:ring-red-400
                            rounded px-2 py-1 transition"
-                aria-label="Delete education entry"
-              >
-                Delete
-              </button>
-            )}
+                    aria-label="Delete education entry"
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <button
-        onClick={handleAddEducation}
-        type="button"
-        className="bg-blue-600 text-white px-4 py-2 rounded-md
+          <button
+            onClick={handleAddEducation}
+            type="button"
+            className="bg-blue-600 text-white px-4 py-2 rounded-md
                    hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500
                    font-semibold transition"
-      >
-        Add Education
-      </button>
+          >
+            Add Education
+          </button>
+        </>
+      )}
     </section>
   );
 }

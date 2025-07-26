@@ -61,6 +61,18 @@ function App() {
     }));
   };
 
+  const [isEmploymentVisible, setIsEmploymentVisible] = useState(false);
+
+  const toggleEmployment = () => {
+    setIsEmploymentVisible((prev) => !prev);
+  };
+
+  const [isEduVisible, setIsEduVisible] = useState(false);
+
+  const toggleEdu = () => {
+    setIsEduVisible((prev) => !prev);
+  };
+
   return (
     <>
       <section className="w-[500px]">
@@ -71,6 +83,8 @@ function App() {
         <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
 
         <RenderEmploymentSection
+          toggleEmployment={toggleEmployment}
+          isEmploymentVisible={isEmploymentVisible}
           employments={employments}
           handleEmploymentChange={handleEmploymentChanges}
           handleAddEmployment={handleAddEmploymentForm}
@@ -78,6 +92,8 @@ function App() {
         />
 
         <RenderEducationSection
+          toggleEdu={toggleEdu}
+          isEduVisible={isEduVisible}
           educations={educations}
           handleEducationChange={handleEducationChanges}
           handleAddEducation={handleAddEducationForm}
