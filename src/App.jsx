@@ -86,8 +86,8 @@ function App() {
   };
 
   return (
-    <>
-      <section className="w-[500px]">
+    <div className="flex flex-row border border-red-600">
+      <section className="w-[500px] border border-red-600">
         <PersonalForm
           togglePersonal={togglePersonal}
           isPersonalVisible={isPersonalVisible}
@@ -126,7 +126,7 @@ function App() {
         employments={employments}
         educations={educations}
       />
-    </>
+    </div>
   );
 }
 
