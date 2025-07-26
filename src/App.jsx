@@ -73,14 +73,33 @@ function App() {
     setIsEduVisible((prev) => !prev);
   };
 
+  const [isPersonalVisible, setIsPersonalVisible] = useState(false);
+
+  const togglePersonal = () => {
+    setIsPersonalVisible((prev) => !prev);
+  };
+
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
+
+  const toggleProfile = () => {
+    setIsProfileVisible((prev) => !prev);
+  };
+
   return (
     <>
       <section className="w-[500px]">
         <PersonalForm
+          togglePersonal={togglePersonal}
+          isPersonalVisible={isPersonalVisible}
           personal={personal}
           handleChange={handleChange(setPersonal)}
         />
-        <ProfileForm profile={profile} onChange={handleChange(setProfile)} />
+        <ProfileForm
+          toggleProfile={toggleProfile}
+          isProfileVisible={isProfileVisible}
+          profile={profile}
+          onChange={handleChange(setProfile)}
+        />
 
         <RenderEmploymentSection
           toggleEmployment={toggleEmployment}
