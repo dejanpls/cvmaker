@@ -22,7 +22,7 @@ export default function RenderEducationSection({
         {educations.map((education) => (
           <div
             key={education.id}
-            className="education-forms-wrapper border border-gray-300 rounded-md p-4 pb-8 relative"
+            className="education-forms-wrapper border border-gray-300 rounded-md pb-8 relative"
           >
             <EducationForm
               education={education}

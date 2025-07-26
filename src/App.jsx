@@ -63,7 +63,7 @@ function App() {
 
   return (
     <>
-      <section className="inputs">
+      <section className="w-[500px]">
         <PersonalForm
           personal={personal}
           handleChange={handleChange(setPersonal)}

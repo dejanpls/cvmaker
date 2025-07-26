@@ -22,7 +22,7 @@ export default function RenderEmploymentSection({
         {employments.map((employment) => (
           <div
             key={employment.id}
-            className="employment-form-wrapper border border-gray-300 rounded-md p-4 pb-8 relative"
+            className="employment-form-wrapper border border-gray-300 rounded-md pb-8 relative"
           >
             <EmploymentForm
               employment={employment}
